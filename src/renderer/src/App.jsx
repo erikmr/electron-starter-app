@@ -24,7 +24,11 @@ function App() {
     const hResult = await window.api.showFlies(message)
     console.log('🚀 ~ ipcHandleShellPython ~ En React ~ showFlies:', hResult)
   }
-
+  const electronExecuteForCRUDLocal = async () => {
+    let message = 'Hola desde React'
+    const hResult = await window.api.executeForCRUDLocal(message)
+    console.log('🚀 ~ ipcHandleShellPython ~ En React ~ electronExecuteForCRUDLocal:', hResult)
+  }
   const electronExecuteForCRUD = async () => {
     const hResult = await window.api.executeForCRUD()
     console.log('🚀 ~ ipcHandleShellPython ~ En React ~ executeForCRUD:', hResult)
@@ -33,7 +37,6 @@ function App() {
   const electronExecuteForCRUD2 = async () => {
     const hResult = await window.api.executeForCRUD2()
     console.log('🚀 ~ ipcHandleShellPython ~ En React ~ executeForCRUD2:', hResult)
-    setData2(hResult.id)
   }
 
   useEffect(() => {
@@ -79,6 +82,11 @@ function App() {
         <div className="action">
           <a target="_blank" rel="noreferrer" onClick={electronAPIShowFiles}>
             Python: Show file
+          </a>
+        </div>
+        <div className="action">
+          <a target="_blank" rel="noreferrer" onClick={electronExecuteForCRUDLocal}>
+            Python: executeForCRUD2
           </a>
         </div>
       </div>

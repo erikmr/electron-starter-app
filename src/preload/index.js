@@ -63,6 +63,24 @@ const api = {
       });
     });
   },
+  executeForCRUDLocal: async (message)  => {
+    return new Promise((resolutionFunc, rejectionFunc) => {
+      console.log('executeForCRUDLocal en Perload')
+      var options = {
+        scriptPath :  './src/engine/py',
+        args : [message]
+      }
+
+      let pyshell = new PythonShell('db.py', options);
+
+      pyshell.on('message', function(message) {
+        resolutionFunc(message);
+      })
+       pyshell.on('stderr', function (stderr) {
+        resolutionFunc('Error: ' +  stderr )  ;
+      });
+    });
+  },
   executeForCRUD: executeForCRUD,
   executeForCRUD2: executeForCRUD2
 }
