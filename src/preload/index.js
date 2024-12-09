@@ -43,11 +43,25 @@ const api = {
        pyshell.on('stderr', function (stderr) {
         resolutionFunc(stderr);
       });
-
-
     });
+  },
+  executeForCRUDLocal: async (message)  => {
+    return new Promise((resolutionFunc, rejectionFunc) => {
+      console.log('logger en Perload')
+      var options = {
+        scriptPath :  './src/engine/py',
+        args : [message]
+      }
 
+      let pyshell = new PythonShell('db.py', options);
 
+      pyshell.on('message', function(message) {
+        resolutionFunc(message);
+      })
+       pyshell.on('stderr', function (stderr) {
+        resolutionFunc(stderr);
+      });
+    });
   },
   executeForCRUD: executeForCRUD,
   executeForCRUD2: executeForCRUD2

@@ -25,11 +25,6 @@ function App() {
     console.log('🚀 ~ ipcHandleShellPython ~ En React ~ showFlies:', hResult)
   }
 
-  const electronAPIShowFiles = async () => {
-    let message = 'Hola desde React'
-    const hResult = await window.api.showFlies(message)
-    console.log('🚀 ~ ipcHandleShellPython ~ En React ~ showFlies:', hResult)
-  }
   const electronExecuteForCRUDLocal = async () => {
     let message = 'Hola desde React'
     const hResult = await window.api.executeForCRUDLocal(message)
