@@ -1,6 +1,5 @@
 import sys
 import os
-from datetime import datetime
 
 city = sys.argv[1]
 
@@ -23,12 +22,8 @@ def show_flies():
         'total': 1
     }
 
-    # Mostrar el JSON actualizado
-    print(hResult)
-
-
     return hResult
 
-print(show_flies() )
+print(show_flies())
 # print("Weather Engine is running")
 sys.stdout.flush()

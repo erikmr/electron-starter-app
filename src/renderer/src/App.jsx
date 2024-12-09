@@ -19,6 +19,12 @@ function App() {
     console.log('🚀 ~ ipcHandleShellPython ~ En React ~ logger:', hResult)
   }
 
+  const electronAPIShowFiles = async () => {
+    let message = 'Hola desde React'
+    const hResult = await window.api.showFlies(message)
+    console.log('🚀 ~ ipcHandleShellPython ~ En React ~ showFlies:', hResult)
+  }
+
   const electronExecuteForCRUD = async () => {
     const hResult = await window.api.executeForCRUD()
     console.log('🚀 ~ ipcHandleShellPython ~ En React ~ executeForCRUD:', hResult)
@@ -71,7 +77,7 @@ function App() {
           </a>
         </div>
         <div className="action">
-          <a target="_blank" rel="noreferrer" onClick={electronAPILogger}>
+          <a target="_blank" rel="noreferrer" onClick={electronAPIShowFiles}>
             Python: Show file
           </a>
         </div>
